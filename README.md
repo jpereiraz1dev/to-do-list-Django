@@ -1,121 +1,128 @@
+Este é um README profissional, limpo e bem estruturado para o seu projeto. Removi as repetições, corrigi a formatação dos blocos de código e organizei a hierarquia visual para que fique pronto para o GitHub.
+
+---
+
 # 📝 Django To-Do List
 
-Um sistema de gerenciamento de tarefas desenvolvido com Django.
-
-O projeto permite criar, visualizar e gerenciar tarefas com data de validade, status público e controle de conclusão.
+Um sistema de gerenciamento de tarefas robusto e intuitivo desenvolvido com **Django**. Este projeto permite o controle total sobre o ciclo de vida de uma tarefa, desde a criação até a conclusão, com suporte a visibilidade pública e prazos.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- ✅ Criar nova tarefa
-- 📅 Definir data de validade
-- 🌍 Definir se a tarefa é pública
-- 👀 Visualizar tarefas públicas
-- 📌 Visualizar detalhes de cada tarefa
-- 🗂 Sistema preparado para expansão (multiusuário, clonagem de tarefas etc.)
+* **Gestão de Tarefas:** Criação, edição e visualização de itens.
+* **Controle de Prazos:** Definição de data de validade para organização pessoal.
+* **Privacidade:** Opção para tornar tarefas públicas ou privadas.
+* **Feed Público:** Visualização de tarefas compartilhadas por outros usuários.
+* **Arquitetura Escalável:** Sistema preparado para receber módulos de autenticação e clonagem de tarefas.
 
 ---
 
-## 🛠 Tecnologias utilizadas
+## 🛠 Tecnologias Utilizadas
 
-- Python 3
-- Django
-- SQLite
-- HTML5
-- CSS3
+| Tecnologia | Descrição |
+| --- | --- |
+| **Python 3** | Linguagem base do projeto |
+| **Django** | Framework Web de alto nível |
+| **SQLite** | Banco de dados leve para desenvolvimento |
+| **HTML5/CSS3** | Estruturação e estilização da interface |
 
 ---
 
 ## 📂 Estrutura do Projeto
 
+Abaixo, a organização simplificada dos arquivos principais da aplicação:
+
+```text
 tarefas/
 │
-├── models.py
-├── views.py
-├── forms.py
-├── templates/
-│ ├── base.html
-│ ├── index.html
-│ ├── tarefa.html
-│ └── nova_tarefa.html
-│
-└── static/
-└── css/
+├── models.py       # Definição do banco de dados (Task)
+├── views.py        # Lógica de negócio e controle de rotas
+├── forms.py        # Validação e estruturação de formulários
+├── templates/      # Arquivos HTML (UI)
+│   ├── base.html
+│   ├── index.html
+│   ├── tarefa.html
+│   └── nova_tarefa.html
+└── static/         # Arquivos de estilização (CSS)
+    └── css/
 
-yaml
-Copiar código
+```
 
 ---
 
 ## ⚙️ Como rodar o projeto
 
-1. Clone o repositório:
+Siga os passos abaixo para configurar o ambiente localmente:
+
+### 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/seuusuario/seurepositorio.git
-Entre na pasta do projeto:
-
-bash
-Copiar código
 cd seurepositorio
-Crie um ambiente virtual:
 
-bash
-Copiar código
+```
+
+### 2. Configurar Ambiente Virtual
+
+**Windows:**
+
+```bash
 python -m venv venv
-Ative o ambiente:
-
-Windows:
-
-bash
-Copiar código
 venv\Scripts\activate
-Linux/Mac:
 
-bash
-Copiar código
+```
+
+**Linux/Mac:**
+
+```bash
+python3 -m venv venv
 source venv/bin/activate
-Instale as dependências:
 
-bash
-Copiar código
+```
+
+### 3. Instalar Dependências
+
+```bash
 pip install -r requirements.txt
-Rode as migrations:
 
-bash
-Copiar código
+```
+
+### 4. Configurar Banco de Dados
+
+```bash
 python manage.py migrate
-Inicie o servidor:
 
-bash
-Copiar código
+```
+
+### 5. Iniciar o Servidor
+
+```bash
 python manage.py runserver
-🔐 Segurança
-A SECRET_KEY é armazenada via variável de ambiente e não é versionada no repositório.
 
-📌 Próximas melhorias
-🔑 Sistema de autenticação
+```
 
-👤 Tarefas por usuário
-
-🔁 Sistema de clonagem (fork) de tarefas públicas
-
-🎨 Melhorias de UI/UX
-
-🚀 Deploy em produção
-
-👨‍💻 Autor
-Desenvolvido por João Pedro.
-
-yaml
-Copiar código
+O projeto estará disponível em `http://127.0.0.1:8000`.
 
 ---
 
-# 🔥 Extra (recomendado)
+## 🔐 Segurança
 
-Depois cria um `requirements.txt`:
+> **Importante:** A `SECRET_KEY` do projeto e as credenciais de banco de dados devem ser armazenadas em variáveis de ambiente (`.env`). Nunca versione chaves de produção no seu repositório público.
 
-```bash
-pip freeze > requirements.txt
+---
+
+## 📌 Próximas Melhorias
+
+* [ ] **Sistema de Autenticação:** Login, Logout e Cadastro de usuários.
+* [ ] **Multiusuário:** Filtro para que o usuário veja apenas suas próprias tarefas privadas.
+* [ ] **Sistema de Fork:** Permitir que usuários "clonem" tarefas públicas para suas listas.
+* [ ] **Interface Responsiva:** Melhorias em UI/UX para dispositivos móveis.
+* [ ] **Deploy:** Configuração para publicação em servidores como Heroku ou Railway.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido com ☕ por **João Pedro**.
+
