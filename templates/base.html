@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">📝 To-Do</div>
+
+        <ul class="nav-links">
+            <li><a href="{% url 'nova_tarefa' %}">Nova tarefa</a></li>
+            <li><a href="{% url 'index' %}">Minhas tarefas</a></li>
+            <li><a href="#">Explorar tarefas</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}

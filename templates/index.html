@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <h1 style="text-align: center;">Minhas Tarefas</h1>
+        <div class="task-header">
+            <span>Nome</span>
+            <span>Validade</span>   
+            <span>Pública</span>
+            <span>Situacao</span>
+        </div>
+        {% for dado in dados %}
+        <ul class="task-list">
+            <!-- tarefas aqui -->
+             <li>
+                <a href="{% url 'tarefa' dado.id %}">{{dado.nome}}</a>
+                <a href="{% url 'tarefa' dado.id %}">{{dado.validade|date:"d/m/Y"}}</a>
+                <a href="{% url 'tarefa' dado.id %}">
+                    {% if dado.publica%}
+                        Publicada
+                    {% else %}
+                        Privada
+                    {% endif %}
+                </a>
+                <a href="{% url 'tarefa' dado.id %}">
+                    {% if dado.situacao%}
+                        Concluida
+                    {% else %}
+                        Pendente
+                    {% endif %}
+                </a>
+            </li>
+        </ul>
+        {% endfor %}
+    </div> 
+{% endblock %}

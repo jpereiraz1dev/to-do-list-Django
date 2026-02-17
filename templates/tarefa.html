@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="todo-container">
+    <h1>{{ tarefa.nome }}</h1>
+
+    <ul class="task-description">
+        <li>
+            <div>
+                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
+                    {{ tarefa.descricao }}
+                </p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
+                    Validade: {{ tarefa.validade|date:"d/m/Y" }}
+                </p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
+                    {% if tarefa.publica %}
+                        Publicada
+                    {% else %}
+                        Privada
+                    {% endif %}
+                </p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
+                    {% if tarefa.situacao %}
+                        Concluida
+                    {% else %}
+                        Pendente
+                    {% endif %}
+                </p>
+            </div>
+        </li>
+       {% if tarefa.situacao %}
+            <li>
+                <div>
+                    <p style="margin: 0; font-size: 14px; color: #9ca3af;">
+                            Concluida em {{ tarefa.concluida_em}}
+       {% endif %}
+                    </p>
+                </div>
+            </li>
+    </ul>
+</div>
+{% endblock %}

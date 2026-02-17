@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Criar Nova Tarefa</h1>
+<form method="post">
+    {% csrf_token %}
+
+    <div>
+        <label for="{{ form.nome.id_for_label }}">Nome</label>
+        {{ form.nome }}
+    </div>
+
+    <div>
+        <label for="{{ form.descricao.id_for_label }}">Descrição</label>
+        {{ form.descricao }}
+    </div>
+
+    <div>
+        <label>
+            {{ form.publica }}
+            Pública
+        </label>
+    </div>
+
+    <div>
+        <label for="{{ form.validade.id_for_label }}">Validade</label>
+        {{ form.validade }}
+    </div>
+
+    <input type="submit" value="Salvar">
+</form>
+
+{% endblock %}

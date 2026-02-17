@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    margin: 0;
+    color: #e5e7eb;
+}
+
+
+.todo-container {
+    background: #020617;
+    padding: 25px;
+    border-radius: 14px;
+    width: 320px;
+    margin: 80px auto 0 auto; /* centraliza horizontal */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.todo-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.input-group button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #38bdf8;
+    color: #020617;
+    font-weight: bold;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.task-list li {
+    background: #020617;
+    border: 1px solid #1e293b;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background: #020617;
+    padding: 14px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+a{
+    color: white;
+}
+
+.task-description {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* FORM CONTAINER */
+form {
+    margin-top: 20px;
+    background: #020617;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* LABEL */
+form label {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* INPUTS, TEXTAREA, SELECT */
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    background: #0f172a;
+    color: #e5e7eb;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* TEXTAREA */
+form textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+/* FOCUS */
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+/* CHECKBOX */
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+    accent-color: #38bdf8;
+}
+
+/* SUBMIT */
+input[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    background: #38bdf8;
+    color: #020617;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background: #0ea5e9;
+    transform: translateY(-2px);
+}
+
+/* BOTÃO SUBMIT */
+
+input[type="submit"] {
+    background: #38bdf8;
+    color: #020617;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: #0ea5e9;
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* TASK HEADER */
+.task-header {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 10px auto;
+    padding: 12px 16px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+/* LISTA COMO GRID */
+.task-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.task-list li {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #020617;
+    transition: 0.2s;
+}
+
+.task-list li:hover {
+    background: #0f172a;
+}
