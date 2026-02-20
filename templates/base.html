@@ -16,7 +16,8 @@
             <li><a href="{% url 'nova_tarefa' %}">Nova tarefa</a></li>
             <li><a href="{% url 'index' %}">Minhas tarefas</a></li>
             <li><a href="#">Explorar tarefas</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
         </ul>
     </nav>
     {% block content %}{% endblock %}

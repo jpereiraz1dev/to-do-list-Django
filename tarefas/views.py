@@ -7,12 +7,12 @@ from tarefas.forms import TarefaForm
 def index(request):
     dados = Tarefa.objects.filter(publica=True)
 
-    return render(request,'index.html',{'dados':dados})
+    return render(request,'tarefas/index.html',{'dados':dados})
 
 def tarefa(request,tarefa_id):
     tarefa = get_object_or_404(Tarefa,pk=tarefa_id)
     
-    return render(request,'tarefa.html',{"tarefa":tarefa})
+    return render(request,'tarefas/tarefa.html',{"tarefa":tarefa})
 
 def nova_tarefa(request):
     form = TarefaForm()
@@ -28,4 +28,4 @@ def nova_tarefa(request):
                 "form": form
             }
 
-    return render(request,"nova_tarefa.html",context)
+    return render(request,"tarefas/nova_tarefa.html",context)

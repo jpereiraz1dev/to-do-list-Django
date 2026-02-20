@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div>
+        <h1>Fazer login</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div>
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+
+            <!-- Senha -->
+            <div>
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+
+
+            <input type="submit" value="Cadastrar">
+
+        </form>
+    </div>
+{% endblock %}

@@ -7,6 +7,7 @@
             <span>Validade</span>   
             <span>Pública</span>
             <span>Situacao</span>
+            <span>Criado por</span>
         </div>
         {% for dado in dados %}
         <ul class="task-list">
@@ -28,6 +29,7 @@
                         Pendente
                     {% endif %}
                 </a>
+                <a href="{% url 'tarefa' dado.id %}">{{dado.user}}</a>
             </li>
         </ul>
         {% endfor %}
