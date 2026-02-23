@@ -114,8 +114,8 @@ O projeto estará disponível em `http://127.0.0.1:8000`.
 
 ## 📌 Próximas Melhorias
 
-* [ ] **Sistema de Autenticação:** Login, Logout e Cadastro de usuários.
-* [ ] **Multiusuário:** Filtro para que o usuário veja apenas suas próprias tarefas privadas.
+* [X] **Sistema de Autenticação:** Login, Logout e Cadastro de usuários.
+* [X] **Multiusuário:** Filtro para que o usuário veja apenas suas próprias tarefas privadas.
 * [ ] **Sistema de Fork:** Permitir que usuários "clonem" tarefas públicas para suas listas.
 * [ ] **Interface Responsiva:** Melhorias em UI/UX para dispositivos móveis.
 * [ ] **Deploy:** Configuração para publicação em servidores como Heroku ou Railway.
