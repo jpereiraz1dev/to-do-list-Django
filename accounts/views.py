@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.contrib.auth.forms import AuthenticationForm
 from accounts.forms import RegisterForm
 from django.contrib import messages
@@ -14,13 +14,14 @@ def user_login(request):
             next_url = request.GET.get('next', 'index')
             return redirect(next_url)
         else:
-            messages.error("Usuario ou Senha invalidos. ")
+            messages.error(request, "Usuario ou Senha invalidos. Tente Novamente ")
     else:
         form = AuthenticationForm()
      
     return render(request,'accounts/login.html',{"form" : form})
 
-def cadastro(request):
+
+def user_cadastro(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -30,3 +31,10 @@ def cadastro(request):
         form = RegisterForm()
     
     return render(request,'accounts/cadastro.html',{"form" : form})
+
+def user_logout(request):
+    if request.method == "POST":
+        logout(request)
+        messages.success(request,"Voce conseguiu sair da sua conta ")
+        return redirect('login')
+    return redirect('index')

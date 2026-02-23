@@ -15,9 +15,15 @@
         <ul class="nav-links">
             <li><a href="{% url 'nova_tarefa' %}">Nova tarefa</a></li>
             <li><a href="{% url 'index' %}">Minhas tarefas</a></li>
-            <li><a href="#">Explorar tarefas</a></li>
+            <li><a href="{% url 'explorer' %}">Explorar tarefas</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+            <li>
+                <form method="POST" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </li>
         </ul>
     </nav>
     {% block content %}{% endblock %}
