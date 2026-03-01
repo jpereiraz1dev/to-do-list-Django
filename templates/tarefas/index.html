@@ -1,37 +1,71 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-        <h1 style="text-align: center;">Minhas Tarefas</h1>
-        <div class="task-header">
-            <span>Nome</span>
-            <span>Validade</span>   
-            <span>Pública</span>
-            <span>Situacao</span>
-            <span>Criado por</span>
+
+<h1 style="text-align: center;">{{ title }}</h1>
+
+<div class="task-header">
+    <span>Nome</span>
+    <span>Validade</span>
+    <span>Pública</span>
+    <span>Situação</span>
+    <span>Criado por</span>
+    {% if title != 'Todas as Tarefas' %}
+    <span>Ações</span>
+    {%else%}
+    {% endif %}
+</div>
+
+<ul class="task-list">
+{% for dado in dados %}
+    <li>
+        <a href="{% url 'tarefa' dado.id %}">{{ dado.nome }}</a>
+
+        <span>
+            {% if dado.validade %}
+                {{ dado.validade|date:"d/m/Y" }}
+            {% else %}
+                Sem limite
+            {% endif %}
+        </span>
+
+        <span>
+            {% if dado.publica %}
+                Pública
+            {% else %}
+                Privada
+            {% endif %}
+        </span>
+
+        <span>
+            {% if dado.situacao %}
+                Concluída
+            {% else %}
+                Pendente
+            {% endif %}
+        </span>
+
+        <span>{{ dado.user }}</span>
+
+        {% if title != 'Todas as Tarefas' %}
+        <!-- AÇÕES -->
+        <div class="task-actions">
+            <a href="{% url 'editar_tarefa' dado.id%}" class="edit-btn" title="Editar">
+                ✏️
+            </a>
+
+                <form method="POST"
+                action="{% url 'deletar_tarefa' dado.id %}"
+                class="delete-form">
+                {% csrf_token %}
+                    <button type="submit" class="btn-delete" title="Excluir">
+                        🗑️
+                    </button>
+                </form>
         </div>
-        {% for dado in dados %}
-        <ul class="task-list">
-            <!-- tarefas aqui -->
-             <li>
-                <a href="{% url 'tarefa' dado.id %}">{{dado.nome}}</a>
-                <a href="{% url 'tarefa' dado.id %}">{{dado.validade|date:"d/m/Y"}}</a>
-                <a href="{% url 'tarefa' dado.id %}">
-                    {% if dado.publica%}
-                        Publicada
-                    {% else %}
-                        Privada
-                    {% endif %}
-                </a>
-                <a href="{% url 'tarefa' dado.id %}">
-                    {% if dado.situacao%}
-                        Concluida
-                    {% else %}
-                        Pendente
-                    {% endif %}
-                </a>
-                <a href="{% url 'tarefa' dado.id %}">{{dado.user}}</a>
-            </li>
-        </ul>
-        {% endfor %}
-    </div> 
+        {% else %}
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
 {% endblock %}

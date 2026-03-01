@@ -1,55 +1,50 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-    <div class="todo-container">
-    <h1>{{ tarefa.nome }}</h1>
+<div class="task-detail-container">
 
-    <ul class="task-description">
-        <li>
-            <div>
-                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
-                    {{ tarefa.descricao }}
-                </p>
-            </div>
-        </li>
-        <li>
-            <div>
-                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
-                    Validade: {{ tarefa.validade|date:"d/m/Y" }}
-                </p>
-            </div>
-        </li>
-        <li>
-            <div>
-                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
-                    {% if tarefa.publica %}
-                        Publicada
-                    {% else %}
-                        Privada
-                    {% endif %}
-                </p>
-            </div>
-        </li>
-        <li>
-            <div>
-                <p style="margin: 0; font-size: 14px; color: #9ca3af;">
-                    {% if tarefa.situacao %}
-                        Concluida
-                    {% else %}
-                        Pendente
-                    {% endif %}
-                </p>
-            </div>
-        </li>
-       {% if tarefa.situacao %}
-            <li>
-                <div>
-                    <p style="margin: 0; font-size: 14px; color: #9ca3af;">
-                            Concluida em {{ tarefa.concluida_em}}
-       {% endif %}
-                    </p>
-                </div>
-            </li>
-    </ul>
+    <!-- HEADER -->
+    <div class="task-detail-header">
+        <h1>{{ tarefa.nome }}</h1>
+
+        <span class="badge 
+            {% if tarefa.situacao %}badge-success{% else %}badge-warning{% endif %}">
+            {% if tarefa.situacao %}Concluída{% else %}Pendente{% endif %}
+        </span>
+    </div>
+
+    <!-- META INFO -->
+    <div class="task-meta">
+        <div>
+            <span>Criado por</span>
+            <strong>{{ tarefa.user }}</strong>
+        </div>
+
+        <div>
+            <span>Validade</span>
+            <strong>{{ tarefa.validade|date:"d/m/Y" }}</strong>
+        </div>
+
+        <div>
+            <span>Visibilidade</span>
+            <strong>
+                {% if tarefa.publica %}Pública{% else %}Privada{% endif %}
+            </strong>
+        </div>
+    </div>
+
+    <!-- DESCRIÇÃO -->
+    <div class="task-description-box">
+        <h3>Descrição</h3>
+        <p>{{ tarefa.descricao }}</p>
+    </div>
+
+    {% if tarefa.situacao %}
+    <div class="task-footer">
+        ✅ Concluída em {{ tarefa.concluida_em|date:"d/m/Y" }}
+    </div>
+    {% endif %}
+
+    <div class="task-actions-bottom">
+
 </div>
 {% endblock %}

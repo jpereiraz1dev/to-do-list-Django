@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tarefas.models import Tarefa
+from .models import Tarefa
 
 class ListandoTarefas:
     pass

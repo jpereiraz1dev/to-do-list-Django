@@ -7,36 +7,20 @@
         <form method="POST">
             {% csrf_token %}
 
-            <!-- Username -->
-            <div>
-                {{ form.username.label_tag }}
-                {{ form.username }}
-                {{ form.username.errors }}
-            </div>
-
-            <!-- Email -->
-            <div>
-                {{ form.email.label_tag }}
-                {{ form.email }}
-                {{ form.email.errors }}
-            </div>
-
-            <!-- Senha -->
-            <div>
-                {{ form.password1.label_tag }}
-                {{ form.password1 }}
-                {{ form.password1.errors }}
-            </div>
-
-            <!-- Confirmacao -->
-            <div>
-                {{ form.password2.label_tag }}
-                {{ form.password2 }}
-                {{ form.password2.errors }}
-            </div>
+            {% for field in form.visible_fields %}
+                <div>
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
 
             <input type="submit" value="Cadastrar">
 
         </form>
+        <form action="{%url 'login'%}">
+            <input style="color: black; background-color: lightgreen;" type="submit" value="Ja tem uma conta? Clique aqui para fazer Login" >
+        </form>
+
     </div>
 {% endblock %}

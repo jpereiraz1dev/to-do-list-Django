@@ -24,9 +24,17 @@
     </div>
 
     <div>
-        <label for="{{ form.validade.id_for_label }}">Validade</label>
-        {{ form.validade }}
+        <label>
+            {{ form.situacao }}
+            Concluida
+        </label>
     </div>
+
+    <div>
+        <label for="{{ form.validade.id_for_label }}">Validade (Opcional)</label>
+        {{ form.validade }} 
+    </div>
+
 
     <input type="submit" value="Salvar">
 </form>

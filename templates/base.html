@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +12,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">📝 To-Do</div>
+
 
         <ul class="nav-links">
             <li><a href="{% url 'nova_tarefa' %}">Nova tarefa</a></li>
@@ -26,4 +28,12 @@
             </li>
         </ul>
     </nav>
+
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}              
+                </div>
+            {% endfor %}
+        {% endif %}
     {% block content %}{% endblock %}

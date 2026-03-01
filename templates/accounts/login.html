@@ -2,37 +2,24 @@
 {% load static %}
 {% block content %}
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert {{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
-
 <div>
         <h1>Fazer login</h1>
 
         <form method="POST">
             {% csrf_token %}
 
-            <!-- Username -->
+            {% for field in form.visible_fields %}
             <div>
-                {{ form.username.label_tag }}
-                {{ form.username }}
-                {{ form.username.errors }}
+                {{field.label_tag}}
+                {{field}}
+                {{form.errors}}
             </div>
-
-            <!-- Senha -->
-            <div>
-                {{ form.password.label_tag }}
-                {{ form.password }}
-                {{ form.password.errors }}
-            </div>
-
-
+            {% endfor %}
             <input type="submit" value="Logar">
+            </form>
+            <form action="{%url 'cadastro'%}" >
+                <input style="color: black; background-color: lightgreen;" type="submit" value="Ainda nao tem uma conta? Clique aqui para se Cadastrar" >
+            </form>
 
-        </form>
     </div>
 {% endblock %}

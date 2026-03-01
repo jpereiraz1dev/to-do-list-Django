@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,logout
 from django.contrib.auth.forms import AuthenticationForm
-from accounts.forms import RegisterForm
+from .forms import RegisterForm
 from django.contrib import messages
 
 def user_login(request):
@@ -34,7 +34,11 @@ def user_cadastro(request):
 
 def user_logout(request):
     if request.method == "POST":
-        logout(request)
-        messages.success(request,"Voce conseguiu sair da sua conta ")
-        return redirect('login')
-    return redirect('index')
+        if not request.user.is_authenticated:
+            messages.error(request,"Voce nao conseguiu deslogar, pois nao esta em uma conta")
+            next_url = request.GET.get('next', 'login')
+            return redirect(next_url)
+        else:
+            logout(request)
+            messages.success(request,"Voce conseguiu sair da sua conta ")
+            return redirect('login')
