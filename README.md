@@ -1,6 +1,3 @@
-Este é um README profissional, limpo e bem estruturado para o seu projeto. Removi as repetições, corrigi a formatação dos blocos de código e organizei a hierarquia visual para que fique pronto para o GitHub.
-
----
 
 # 📝 Django To-Do List
 
